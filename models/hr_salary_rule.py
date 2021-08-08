@@ -16,7 +16,7 @@ class HrSalaryRule(models.Model):
         return localdict
 
     @api.multi
-    def compute_rule(self, localdict):
+    def _compute_rule(self, localdict):
         """
         :param localdict: dictionary containing the environement in which to compute the rule
         :return: returns a tuple build as the base/amount computed, the quantity and the rate
@@ -24,15 +24,15 @@ class HrSalaryRule(models.Model):
         """
         self.ensure_one()
         localdict = self._add_date_libs(localdict)
-        return super(HrSalaryRule, self).compute_rule(localdict)
+        return super(HrSalaryRule, self)._compute_rule(localdict)
 
     @api.multi
-    def satisfy_condition(self, localdict):
+    def _satisfy_condition(self, localdict):
         """
         @param contract_id: id of hr.contract to be tested
         @return: returns True if the given rule match the condition for the given contract. Return False otherwise.
         """
         self.ensure_one()
         localdict = self._add_date_libs(localdict)
-        return super(HrSalaryRule, self).satisfy_condition(localdict)
+        return super(HrSalaryRule, self)._satisfy_condition(localdict)
 
