@@ -11,8 +11,9 @@ class HrSalaryRule(models.Model):
         localdict.update({
             'datetime': datetime,
             'dateutil': dateutil,
-            'fields': fields
-            })
+            'fields': fields,
+            'math': math,
+        })
         return localdict
 
     @api.multi
