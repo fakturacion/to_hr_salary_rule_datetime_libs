@@ -1,5 +1,6 @@
 import datetime
 import dateutil
+import math
 
 from odoo import models, api, fields
 
@@ -11,7 +12,8 @@ class HrSalaryRule(models.Model):
         localdict.update({
             'datetime': datetime,
             'dateutil': dateutil,
-            'fields': fields
+            'fields': fields,
+            'math': math,
             })
         return localdict
 
